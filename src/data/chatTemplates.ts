@@ -218,7 +218,8 @@ export const chatTemplates: TemplateSection[] = [
     title: "Resolution Confirmation",
     icon: "✅",
     items: [
-      { id: "confirmation-password-email", content: "Can you confirm if you received the reset password link in your email and whether you were able to successfully complete the password reset process, please?", notes: "Confirm password received" }
+      { id: "confirmation-password-email", content: "Can you confirm if you received the reset password link in your email and whether you were able to successfully complete the password reset process, please?", notes: "Confirm password received" },
+      { id: "cr-glad-to-help", content: "I'm glad we were able to help you today. I'm going to end our chat session, but please contact us again if you have any other questions.", notes: "CR" }
     ]
   },
   {
