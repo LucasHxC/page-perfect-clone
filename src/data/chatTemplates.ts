@@ -82,7 +82,7 @@ export const chatTemplates: TemplateSection[] = [
     title: "Compromised Account",
     icon: "⚠️",
     items: [
-      { id: "compromised-yes", content: "There's suspicious activity suggesting a compromise. I'll need to verify account ownership. Would you like to proceed?", notes: "If compromised" },
+      { id: "compromised-yes", content: "Thank you for your patience while I researched this issue. There does seem to be some suspicious activity on your account that suggests there was a compromise. To regain access to your account, I will need to verify the owner of this account.", notes: "If compromised" },
       { id: "compromised-no", content: "To regain access, I'll need to verify account ownership. Would you like to proceed?", notes: "If not compromised" }
     ]
   },
