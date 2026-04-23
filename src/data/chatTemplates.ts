@@ -123,7 +123,9 @@ export const chatTemplates: TemplateSection[] = [
       { id: "verification-code-sent", content: "I've just sent a verification code to the email address you provided. Could you please share the code with me once you receive it?" },
       { id: "code-thanks", content: "Thank you for providing that code." },
       { id: "verified", content: "Good news. We were able to verify that you are the owner of this account and we can proceed with securing your account." },
-      { id: "contact-verify", content: "Thank you for providing that. One moment while I verify these contact points.", notes: "User will give an email, phone number OR both" }
+      { id: "contact-verify", content: "Thank you for providing that. One moment while I verify these contact points.", notes: "User will give an email, phone number OR both" },
+      { id: "insufficient-photos", content: "Unfortunately, your account does not have sufficient profile photos on file for us to complete the selfie verification process." },
+      { id: "selfie-no-match", content: "Unfortunately, the selfie you provided did not match the photo associated with your account." }
     ]
   },
   {
