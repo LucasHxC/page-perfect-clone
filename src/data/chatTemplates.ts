@@ -91,7 +91,7 @@ export const chatTemplates: TemplateSection[] = [
     title: "Ownership Verification",
     icon: "🔐",
     items: [
-      { id: "fb-app", content: "The quickest way is via the Facebook app. Is it installed on your phone?", notes: "Facebook case" },
+      { id: "fb-app", content: "The quickest and most secure way to confirm ownership of this account is through the Facebook app. You do not need to log in to complete this process. Do you have the app installed on your phone?", notes: "Facebook case" },
       { id: "ig-app", content: "The quickest way is via the Instagram app. Is it installed on your phone?", notes: "Instagram case" }
     ]
   },
