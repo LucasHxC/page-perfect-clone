@@ -277,7 +277,7 @@ export const chatTemplates: TemplateSection[] = [
 
 export const leftSidebarButtons = [
   { label: "Not Comp. CR", symbol: "▸", message: "To regain access, I'll need to verify account ownership. Would you like to proceed?" },
-  { label: "Compromised CR", symbol: "▸", message: "Thank you for your patience while I researched this issue. To regain access to your account, I will need to verify the owner of this account." },
+  { label: "Compromised CR", symbol: "▸", message: "Thank you for your patience while I researched this issue. There does seem to be some suspicious activity on your account that suggests there was a compromise. To regain access to your account, I will need to verify the owner of this account." },
   { label: "FB App", symbol: "◇", message: "The quickest way is via the Facebook app. Is it installed on your phone?" },
   { label: "IG App", symbol: "◆", message: "The quickest way is via the Instagram app. Is it installed on your phone?" },
   { label: "Device Conf.", symbol: "●", message: "On the device you have with our chat open, do you have access to the camera? Is it mobile or desktop?" },
