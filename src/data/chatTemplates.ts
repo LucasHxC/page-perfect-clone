@@ -278,7 +278,7 @@ export const chatTemplates: TemplateSection[] = [
 export const leftSidebarButtons = [
   { label: "Not Comp. CR", symbol: "▸", message: "Thank you for your patience while I researched this issue. To regain access to your account, I will need to verify the owner of this account." },
   { label: "Compromised CR", symbol: "▸", message: "Thank you for your patience while I researched this issue. There does seem to be some suspicious activity on your account that suggests there was a compromise. To regain access to your account, I will need to verify the owner of this account." },
-  { label: "FB App", symbol: "◇", message: "The quickest way is via the Facebook app. Is it installed on your phone?" },
+  { label: "FB App", symbol: "◇", message: "The quickest and most secure way to confirm ownership of this account is through the Facebook app. You do not need to log in to complete this process. Do you have the app installed on your phone?" },
   { label: "IG App", symbol: "◆", message: "The quickest way is via the Instagram app. Is it installed on your phone?" },
   { label: "Device Conf.", symbol: "●", message: "On the device you have with our chat open, do you have access to the camera? Is it mobile or desktop?" },
   { label: "Mobile", symbol: "<", message: "To start the selfie verification process please click this link and follow the instructions provided in the app. Let me know when you have completed this process." },
