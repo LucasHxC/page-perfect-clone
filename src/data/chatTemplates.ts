@@ -286,7 +286,7 @@ export const leftSidebarButtons = [
   { label: "ID Reject", symbol: "!", message: "Thank you for your patience while the system reviewed your ID. Unfortunately, I am unable to complete the authentication process based on the ID you have provided, so I won't be able to grant access to your account. Please refer to the Facebook Help Center article here for more information: https://www.facebook.com/help" },
   { label: "Invalid KBA", symbol: "!", message: "Unfortunately I am unable to complete the authentication process based on the information you have provided, so I won't be able to grant access to your account. Please refer to the Facebook Help Center article here for more information: https://www.facebook.com/help" },
   { label: "Can't Reproduce", symbol: "!", message: "I've reviewed your case and attempted to reproduce the issue you described, but I'm unable to replicate it on my end. Could you provide more details about when this occurs and any specific steps you take before seeing the problem?" },
-  { label: "Email SUA", symbol: "◎", message: "Can you provide an email that is NOT associated with an existing Facebook or Instagram account?" },
+  { label: "Email SUA", symbol: "◎", message: "To help secure your account, I'll need a new email address from you. Please provide an email you can access that isn't currently linked to any Facebook or Instagram account." },
   { label: "email", symbol: "▸", message: "Could you provide an email or phone number that was associated with either a Facebook or an Instagram account that you still have access to?" }
 ];
 
