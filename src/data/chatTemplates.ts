@@ -17,7 +17,7 @@ export const chatTemplates: TemplateSection[] = [
     title: "Opening",
     icon: "👋",
     items: [
-      { id: "introduction", content: "Hi, [Client's Name], Thank you for contacting Meta Support. Your case ID is {case_id}. My name is Agent_name and I'll be happy to assist you today. When did you start noticing this issue?", notes: "Introduction" },
+      { id: "introduction", content: "Hello, [Client's Name]. Thank you for contacting Meta support. I am James. For your reference, your case ID is [Case ID]. To get started, please tell me a bit more about what you're experiencing.", notes: "Introduction" },
       { id: "case-owned", content: "Hello, [Client's Name]. I am James from Meta Support. Thank you for your patience. I am now going to take over this case from our chatbot assistant. One moment while I review the previous conversation and your account.", notes: "Case Owned by bot" },
       { id: "ask-name", content: "Hi, my name is Agent_name. Your case ID is {case_id}. Thank you for contacting Meta Support. For better understanding, could you provide your name?", notes: "If name is not visible" },
       { id: "returning-customer", content: "Hi again! Let me know when you're ready to pick up where we left off", notes: "Returning customer" },
