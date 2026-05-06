@@ -74,7 +74,11 @@ export const chatTemplates: TemplateSection[] = [
     icon: "🔬",
     items: [
       { id: "wait-time", content: "Kindly allow me 3-5 minutes while I look into this. Thank you." },
-      { id: "proceed", content: "Thank you for your submission; I'll proceed with the next steps." }
+      { id: "proceed", content: "Thank you for your submission; I'll proceed with the next steps." },
+      { id: "agc-account-only", content: "Unfortunately, I can only assist with the FB/IG account (name visible on AGC) through this chat support. If you require assistance with another account, you will need to raise a separate request from that specific account." },
+      { id: "confirm-account", content: "To confirm, are you seeking support for the Facebook/IG account, < Account name>?" },
+      { id: "regain-then-delete", content: "I can help you regain access to your account once I verify your identity. Once you gain access to your account, you will be able to update your number/ delete your account by yourself. If that's okay, would you like to proceed?\n\n\n\n\nPermanently Delete Your Facebook Account: https://www.facebook.com/help/224562897555674/\n\n\n\n\nPermanently delete or deactivate your Instagram account: https://help.instagram.com/139886812848894" },
+      { id: "separate-account-security", content: "For security purposes, we are unable to assist you on a separate account. Please reach out via (Facebook/Instagram).com/hacked through your other account for assistance." }
     ]
   },
   {
