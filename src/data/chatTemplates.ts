@@ -41,7 +41,8 @@ export const chatTemplates: TemplateSection[] = [
       { id: "issue-confirm", content: "I see you need assistance with [issue type]. Is this correct?" },
       { id: "issue-understood", content: "If I understood you, your issue is [Issue type], is that correct?" },
       { id: "Paraphasing-1", content: "I understand that you're reporting an [client's concern/request]. Did I get it right?", notes: "Paraphasing 1" },
-      { id: "Paraphasing-2", content: "Let me make sure I've got this right. Your requesting [client's concern/request].", notes: "Paraphasing 2" }
+      { id: "Paraphasing-2", content: "Let me make sure I've got this right. Your requesting [client's concern/request].", notes: "Paraphasing 2" },
+      { id: "hacked-confirm", content: "I understand that you're reporting a hacked account. Did I get it right?", notes: "Hacked account" }
     ]
   },
   {
@@ -301,6 +302,7 @@ export const rightSidebarButtons = [
   { label: "Abandoned", symbol: "◷", message: "You seem to be away. I'll pause the chat, but you can contact us again. Thank you for your understanding." },
   { label: "Issue", symbol: "?", message: "If I understood you, your issue is [Issue type], is that correct?" },
   { label: "2FA", symbol: "○", message: "I understand that you're reporting an issue or request related to two-factor authentication (2FA). Did I get that right?" },
+  { label: "Hacked", symbol: "☠", message: "I understand that you're reporting a hacked account. Did I get it right?" },
   { label: "Password", symbol: "◇", message: "I understand that you're reporting a password issue and a new email address. Did I get it right?" },
   { label: "Frustrated", symbol: "", message: "I'm sorry to hear you're experiencing this. We take these matters seriously and will work to address the issue." },
   { label: "Not Frust.", symbol: "▲", message: "I'm here to help you out. Let me take a look at your account and see what I can do for you." },
