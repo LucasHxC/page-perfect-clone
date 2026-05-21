@@ -122,7 +122,7 @@ export const chatTemplates: TemplateSection[] = [
     title: "Script After Submitting Video",
     icon: "🎬",
     items: [
-      { id: "video-review", content: "Thank you for the video. One moment while I review it." },
+      { id: "video-review", content: "Thank you for completing the selfie verification. Please give me a moment while I verify your identity." },
       { id: "passed-first", content: "Good news, It looks like you passed our first verification point." },
       { id: "second-verify", content: "For the second form of verification, we will need a previous email or phone number that was associated with either a Facebook or an Instagram account that you still have access to." },
       { id: "verification-code-sent", content: "I've just sent a verification code to the email address you provided. Could you please share the code with me once you receive it?" },
