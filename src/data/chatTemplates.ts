@@ -226,6 +226,7 @@ export const chatTemplates: TemplateSection[] = [
     icon: "✅",
     items: [
       { id: "confirmation-password-email", content: "Can you confirm if you received the reset password link in your email and whether you were able to successfully complete the password reset process, please?", notes: "Confirm password received" },
+      { id: "account-secure", content: "Your account is now secure. You should be receiving an email to [NEW email provided] with a password reset link. Be sure to log into your (Facebook/Instagram) account with this new email address. Let me know if you run into any issues.", notes: "Account secure" },
       { id: "cr-glad-to-help", content: "I'm glad we were able to help you today. I'm going to end our chat session, but please contact us again if you have any other questions.", notes: "CR" },
       { id: "cr-pending-response", content: "We have provided a resolution to your case. If you require any additional support, please return to the chat feature to continue the conversation. This case will remain open for up to 48 hours. If no response is received, it will be automatically closed.", notes: "CR Pending Response" }
     ]
