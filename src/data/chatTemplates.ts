@@ -97,7 +97,8 @@ export const chatTemplates: TemplateSection[] = [
     icon: "🔐",
     items: [
       { id: "fb-app", content: "The quickest and most secure way to confirm ownership of this account is through the Facebook app. You do not need to log in to complete this process. Do you have the app installed on your phone?", notes: "Facebook case" },
-      { id: "ig-app", content: "The quickest way is via the Instagram app. Is it installed on your phone?", notes: "Instagram case" }
+      { id: "ig-app", content: "The quickest way is via the Instagram app. Is it installed on your phone?", notes: "Instagram case" },
+      { id: "previous-device", content: "For the next verification question, can you provide any previous devices you used to log into your (Facebook/Instagram) account? Please provide the exact device model type (i.e. iPhone 14 Pro Max) tablet, or computer.", notes: "Previous device" }
     ]
   },
   {
