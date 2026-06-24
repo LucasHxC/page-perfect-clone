@@ -39,9 +39,9 @@ export default function ChatTemplatesPage() {
     }
     processed = processed.replace(/Agent_name/g, agentAlias);
     if (caseId.trim()) {
-      processed = processed.replace(/Your case ID is \{case_id\}\. /gi, `Your case ID is ${caseId}. `);
+      processed = processed.replace(/your case ID is \{case_id\}\. ?/gi, `your case ID is ${caseId}. `);
     } else {
-      processed = processed.replace(/Your case ID is \{case_id\}\. /gi, '');
+      processed = processed.replace(/your case ID is \{case_id\}\. ?/gi, '');
     }
     const authCode = caseId && caseId.length >= 5 ? caseId.slice(-5) : '{auth_code}';
     processed = processed.replace(/\{auth_code\}/gi, authCode);

@@ -27,9 +27,9 @@ export function useTemplateState() {
     processed = processed.replace(/Agent_name/g, state.agentAlias);
 
     if (state.caseId.trim()) {
-      processed = processed.replace(/Your case ID is \{case_id\}\. /gi, `Your case ID is ${state.caseId}. `);
+      processed = processed.replace(/your case ID is \{case_id\}\. ?/gi, `your case ID is ${state.caseId}. `);
     } else {
-      processed = processed.replace(/Your case ID is \{case_id\}\. /gi, '');
+      processed = processed.replace(/your case ID is \{case_id\}\. ?/gi, '');
     }
 
     const authCode =
