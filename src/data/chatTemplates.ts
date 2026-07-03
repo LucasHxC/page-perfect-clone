@@ -42,7 +42,9 @@ export const chatTemplates: TemplateSection[] = [
       { id: "issue-understood", content: "If I understood you, your issue is [Issue type], is that correct?" },
       { id: "Paraphasing-1", content: "I understand that you're reporting an [client's concern/request]. Did I get it right?", notes: "Paraphasing 1" },
       { id: "Paraphasing-2", content: "Let me make sure I've got this right. Your requesting [client's concern/request].", notes: "Paraphasing 2" },
-      { id: "hacked-confirm", content: "I understand that you're reporting a hacked account. Did I get it right?", notes: "Hacked account" }
+      { id: "hacked-confirm", content: "I understand that you're reporting a hacked account. Did I get it right?", notes: "Hacked account" },
+      { id: "password-phone", content: "I understand that you're reporting a password issue and a new phone number. Did I get it right?", notes: "Password + phone" },
+      { id: "password-email", content: "I understand that you're reporting a password issue and a new email address. Did I get it right?", notes: "Password + email" }
     ]
   },
   {
