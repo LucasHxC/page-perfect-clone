@@ -169,10 +169,9 @@ export function CaseInfoChecklist() {
   };
 
   const handleCopyCaseInfo = async () => {
-    try {
-      await navigator.clipboard.writeText(generateOutput());
-      toast.success('Case info copied!');
-    } catch { toast.error('Failed to copy'); }
+    const ok = await copyText(generateOutput());
+    if (ok) toast.success('Case info copied!');
+    else toast.error('Failed to copy');
   };
 
   const rowClass = "flex items-center gap-3 mb-3 flex-wrap";
