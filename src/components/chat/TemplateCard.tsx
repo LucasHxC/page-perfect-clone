@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
 import { TemplateSection } from '@/data/chatTemplates';
+import { copyText } from '@/lib/clipboard';
 
 interface TemplateCardProps {
   item: TemplateSection['items'][0];
