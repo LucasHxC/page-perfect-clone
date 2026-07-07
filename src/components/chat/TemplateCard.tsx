@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
 import { TemplateSection } from '@/data/chatTemplates';
+import { copyText } from '@/lib/clipboard';
 
 interface TemplateCardProps {
   item: TemplateSection['items'][0];
@@ -13,21 +14,21 @@ export function TemplateCard({ item, processContent }: TemplateCardProps) {
 
   const handleCopy = async () => {
     const text = processContent(item.content);
-    try {
-      await navigator.clipboard.writeText(text);
-      toast.success('Copied to clipboard!');
-      if (copyBtnRef.current) {
-        copyBtnRef.current.textContent = '✓';
-        copyBtnRef.current.classList.add('copied');
-        setTimeout(() => {
-          if (copyBtnRef.current) {
-            copyBtnRef.current.textContent = '📋';
-            copyBtnRef.current.classList.remove('copied');
-          }
-        }, 2000);
-      }
-    } catch {
+    const ok = await copyText(text);
+    if (!ok) {
       toast.error('Failed to copy');
+      return;
+    }
+    toast.success('Copied to clipboard!');
+    if (copyBtnRef.current) {
+      copyBtnRef.current.textContent = '✓';
+      copyBtnRef.current.classList.add('copied');
+      setTimeout(() => {
+        if (copyBtnRef.current) {
+          copyBtnRef.current.textContent = '📋';
+          copyBtnRef.current.classList.remove('copied');
+        }
+      }, 2000);
     }
   };
 
