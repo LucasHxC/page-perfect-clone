@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
+import { copyText } from '@/lib/clipboard';
 
 type TriStateValue = 'yes' | 'no' | null;
 type ClassifierBy = 'Bot' | 'Agent' | null;
