@@ -16,12 +16,9 @@ interface SidebarPanelProps {
 
 export function SidebarPanel({ buttons, processContent, side }: SidebarPanelProps) {
   const handleCopy = async (message: string, label: string) => {
-    try {
-      await navigator.clipboard.writeText(processContent(message));
-      toast.success(`Copied: ${label}`);
-    } catch {
-      toast.error('Failed to copy');
-    }
+    const ok = await copyText(processContent(message));
+    if (ok) toast.success(`Copied: ${label}`);
+    else toast.error('Failed to copy');
   };
 
   return (
