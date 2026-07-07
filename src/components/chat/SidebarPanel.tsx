@@ -1,5 +1,6 @@
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
+import { copyText } from '@/lib/clipboard';
 
 interface SidebarButton {
   label: string;
