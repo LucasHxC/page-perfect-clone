@@ -45,6 +45,7 @@ export const chatTemplates: TemplateSection[] = [
       { id: "hacked-confirm", content: "I understand that you're reporting a hacked account. Did I get it right?", notes: "Hacked account" },
       { id: "password-phone", content: "I understand that you're reporting a password issue and a new phone number. Did I get it right?", notes: "Password + phone" },
       { id: "password-email", content: "I understand that you're reporting a password issue and a new email address. Did I get it right?", notes: "Password + email" }
+      { id: "password-reset-link", content: "I understand that you're reporting an issue with your password reset link. Did I get that right?", notes: "Password reset link" },
     ]
   },
   {
