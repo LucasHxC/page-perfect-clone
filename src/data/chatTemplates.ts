@@ -220,7 +220,7 @@ export const chatTemplates: TemplateSection[] = [
     items: [
       { id: "still-connected", content: "Are we still connected?" },
       { id: "no-response", content: "Since I haven't heard back, I'll end our chat for today. We'd be happy to provide further assistance." },
-      { id: "away", content: "You seem to be away. I'll pause the chat, but you can contact us again. Thank you for your understanding." }
+      { id: "away", content: "Since I haven't heard back, I'm going to pause this chat for now. You can send a message whenever you're ready to continue and we will get back to you" }
     ]
   },
   {
