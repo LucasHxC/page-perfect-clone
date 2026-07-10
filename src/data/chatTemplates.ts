@@ -117,7 +117,7 @@ export const chatTemplates: TemplateSection[] = [
     title: "Device Confirmation",
     icon: "📱",
     items: [
-      { id: "device-check", content: "On the device you have with our chat open, do you have access to the camera? Is it mobile or desktop?" },
+      { id: "device-check", content: "Could you please confirm the device you are using to chat with us? Is it a mobile phone or a desktop?" },
       { id: "no-phone-facebook", content: "I understand you don't have a phone to complete this step. In order to record the selfie video, you will need to use a phone with the Facebook app installed.", notes: "No phone" },
       { id: "borrow-phone", content: "Could you borrow a phone from a friend or family member to complete this step? Don't worry, you don't need to log in to your Facebook account on their phone to record the video.", notes: "Borrow phone" },
       { id: "any-phone-qr", content: "You can use any phone with the Facebook app installed on it to scan the QR code. Don't worry, you don't need to log in to your Facebook account on that phone to record the video.", notes: "Any phone QR" },
