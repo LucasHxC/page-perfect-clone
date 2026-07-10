@@ -169,7 +169,7 @@ export const chatTemplates: TemplateSection[] = [
     title: "ID Check",
     icon: "🪪",
     items: [
-      { id: "id-request", content: "In order to proceed, you need to submit one of the following ID's: Passport, driver's license, National ID via the Facebook app. Are you okay with that?" },
+      { id: "id-request", content: "The next step is to verify your identity by submitting an ID via the Facebook app. To complete this step, you will need to submit one of the following types of ID: Passport, Driver's license and National ID" },
       { id: "id-link", content: "I'm sending you a link to complete an ID check. Please click the link and follow the instructions provided. If you have any questions or need assistance, I'm here to help." },
       { id: "id-submitted", content: "Thank you for submitting your ID. I will review your document and keep you updated." },
       { id: "id-internal-review", content: "Thank you for your patience. The ID is now being reviewed by our dedicated internal team. I will convert this support case to Email and inform you once I have an update for you. What is an email address I can use to contact you?", notes: "Internal review" },
