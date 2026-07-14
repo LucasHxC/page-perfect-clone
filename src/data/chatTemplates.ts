@@ -312,7 +312,7 @@ export const rightSidebarButtons = [
   { label: "Confirmation", symbol: "!", message: "Awesome! Thanks for confirming the details." },
   { label: "Greeting", symbol: "◉", message: "Hi, [Client's Name]. Thank you for contacting Meta Support. Your case ID is {case_id}. My name is Agent_name and I'll be happy to assist you today. Please tell me more about the issue." },
   { label: "No Name", symbol: "○", message: "Hi, my name is Agent_name. Your case ID is {case_id}. Thank you for contacting Meta Support. For better understanding, could you provide your name?" },
-  { label: "Abandoned", symbol: "◷", message: "You seem to be away. I'll pause the chat, but you can contact us again. Thank you for your understanding." },
+  { label: "Abandoned", symbol: "◷", message: "Since I haven't heard back, I'm going to pause this chat for now. You can send a message whenever you're ready to continue and we will get back to you" },
   { label: "Issue", symbol: "?", message: "If I understood you, your issue is [Issue type], is that correct?" },
   { label: "2FA", symbol: "○", message: "I understand that you're reporting an issue or request related to two-factor authentication (2FA). Did I get that right?" },
   { label: "Hacked", symbol: "☠", message: "I understand that you're reporting a hacked account. Did I get it right?" },
