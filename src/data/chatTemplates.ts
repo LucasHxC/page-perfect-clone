@@ -318,7 +318,7 @@ export const rightSidebarButtons = [
   { label: "2FA", symbol: "○", message: "I understand that you're reporting an issue or request related to two-factor authentication (2FA). Did I get that right?" },
   { label: "Hacked", symbol: "☠", message: "I understand that you're reporting a hacked account. Did I get it right?" },
   { label: "Password", symbol: "◇", message: "I understand that you're reporting a password issue and a new email address. Did I get it right?" },
-  { label: "Frustrated", symbol: "", message: "I'm sorry to hear you're experiencing this. We take these matters seriously and will work to address the issue." },
+  { label: "Empathy", symbol: "", message: "I'm here to help you out. Let me take a look at your account and see what I can do for you." },
   { label: "Not Frust.", symbol: "▲", message: "I'm here to help you out. Let me take a look at your account and see what I can do for you." },
   { label: "Timing", symbol: "◐", message: "When did you start noticing this issue?" },
   { label: "pause-inves", symbol: "○", message: "Thanks for sharing all this information, [Client's Name]. We are now looking into it. Please keep the chat open while we investigate." },
