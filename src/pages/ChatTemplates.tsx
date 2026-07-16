@@ -3,8 +3,18 @@ import { chatTemplates, leftSidebarButtons, rightSidebarButtons, quickNavButtons
 import { AccordionSection } from '@/components/chat/AccordionSection';
 import { SidebarPanel } from '@/components/chat/SidebarPanel';
 import { CaseInfoChecklist } from '@/components/chat/CaseInfoChecklist';
+import { SortableWrapper } from '@/components/chat/SortableWrapper';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
+import {
+  DndContext,
+  closestCenter,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  DragEndEvent,
+} from '@dnd-kit/core';
+import { SortableContext, arrayMove, verticalListSortingStrategy } from '@dnd-kit/sortable';
 
 export default function ChatTemplatesPage() {
   const [clientName, setClientName] = useState('');
