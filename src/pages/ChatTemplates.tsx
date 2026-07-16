@@ -285,17 +285,22 @@ export default function ChatTemplatesPage() {
               <button onClick={() => setSearchQuery('')} className="text-primary hover:underline text-sm">Clear search</button>
             </div>
           ) : (
-            filteredTemplates.map((section, i) => (
-              <AccordionSection
-                key={section.id}
-                section={section}
-                isOpen={openSections.includes(section.id) || (searchQuery.trim() !== '')}
-                onToggle={() => toggleSection(section.id)}
-                processContent={processContent}
-                caseId={caseId}
-                animationDelay={200 + i * 50}
-              />
-            ))
+            <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleSectionDragEnd}>
+              <SortableContext items={filteredTemplates.map(s => s.id)} strategy={verticalListSortingStrategy}>
+                {filteredTemplates.map((section, i) => (
+                  <SortableWrapper key={section.id} id={section.id}>
+                    <AccordionSection
+                      section={section}
+                      isOpen={openSections.includes(section.id) || (searchQuery.trim() !== '')}
+                      onToggle={() => toggleSection(section.id)}
+                      processContent={processContent}
+                      caseId={caseId}
+                      animationDelay={200 + i * 50}
+                    />
+                  </SortableWrapper>
+                ))}
+              </SortableContext>
+            </DndContext>
           )}
         </div>
 
