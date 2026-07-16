@@ -211,7 +211,7 @@ export default function ChatTemplatesPage() {
             type="text"
             value={clientName}
             onChange={e => handleClientNameChange(e.target.value)}
-            placeholder="Enter client's name (auto-clears after 3 minutes)..."
+            placeholder="Enter client's name..."
             className="w-full px-3 py-2.5 border-2 border-border rounded-xl bg-card text-foreground text-sm focus:outline-none focus:border-primary transition shadow-sm"
           />
         </div>
