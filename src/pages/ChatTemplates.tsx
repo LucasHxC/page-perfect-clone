@@ -3,8 +3,18 @@ import { chatTemplates, leftSidebarButtons, rightSidebarButtons, quickNavButtons
 import { AccordionSection } from '@/components/chat/AccordionSection';
 import { SidebarPanel } from '@/components/chat/SidebarPanel';
 import { CaseInfoChecklist } from '@/components/chat/CaseInfoChecklist';
+import { SortableWrapper } from '@/components/chat/SortableWrapper';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
+import {
+  DndContext,
+  closestCenter,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  DragEndEvent,
+} from '@dnd-kit/core';
+import { SortableContext, arrayMove, verticalListSortingStrategy } from '@dnd-kit/sortable';
 
 export default function ChatTemplatesPage() {
   const [clientName, setClientName] = useState('');
@@ -13,9 +23,39 @@ export default function ChatTemplatesPage() {
   const [openSections, setOpenSections] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [isDark, setIsDark] = useState(() => localStorage.getItem('theme') === 'dark');
+  const [sectionOrder, setSectionOrder] = useState<string[]>(() => {
+    try {
+      const saved = localStorage.getItem('section-order');
+      if (saved) {
+        const ids: string[] = JSON.parse(saved);
+        const valid = ids.filter(id => chatTemplates.some(s => s.id === id));
+        const missing = chatTemplates.map(s => s.id).filter(id => !valid.includes(id));
+        return [...valid, ...missing];
+      }
+    } catch {}
+    return chatTemplates.map(s => s.id);
+  });
   const clientNameTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const clientNameHeaderRef = useRef<HTMLInputElement>(null);
   const clientNameMainRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    localStorage.setItem('section-order', JSON.stringify(sectionOrder));
+  }, [sectionOrder]);
+
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 8 } })
+  );
+
+  const handleSectionDragEnd = (e: DragEndEvent) => {
+    const { active, over } = e;
+    if (!over || active.id === over.id) return;
+    setSectionOrder(order => {
+      const oldIndex = order.indexOf(active.id as string);
+      const newIndex = order.indexOf(over.id as string);
+      return arrayMove(order, oldIndex, newIndex);
+    });
+  };
 
   // Apply dark mode
   useEffect(() => {
@@ -57,9 +97,14 @@ export default function ChatTemplatesPage() {
     localStorage.setItem('selectedAgent', value);
   };
 
+  // Apply persisted section order
+  const orderedTemplates = sectionOrder
+    .map(id => chatTemplates.find(s => s.id === id))
+    .filter(Boolean) as typeof chatTemplates;
+
   // Filter templates based on search
   const filteredTemplates = searchQuery.trim()
-    ? chatTemplates
+    ? orderedTemplates
         .map(section => ({
           ...section,
           items: section.items.filter(
@@ -70,7 +115,7 @@ export default function ChatTemplatesPage() {
           ),
         }))
         .filter(s => s.items.length > 0)
-    : chatTemplates;
+    : orderedTemplates;
 
   const toggleSection = (id: string) => {
     setOpenSections(prev =>
@@ -240,17 +285,22 @@ export default function ChatTemplatesPage() {
               <button onClick={() => setSearchQuery('')} className="text-primary hover:underline text-sm">Clear search</button>
             </div>
           ) : (
-            filteredTemplates.map((section, i) => (
-              <AccordionSection
-                key={section.id}
-                section={section}
-                isOpen={openSections.includes(section.id) || (searchQuery.trim() !== '')}
-                onToggle={() => toggleSection(section.id)}
-                processContent={processContent}
-                caseId={caseId}
-                animationDelay={200 + i * 50}
-              />
-            ))
+            <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleSectionDragEnd}>
+              <SortableContext items={filteredTemplates.map(s => s.id)} strategy={verticalListSortingStrategy}>
+                {filteredTemplates.map((section, i) => (
+                  <SortableWrapper key={section.id} id={section.id}>
+                    <AccordionSection
+                      section={section}
+                      isOpen={openSections.includes(section.id) || (searchQuery.trim() !== '')}
+                      onToggle={() => toggleSection(section.id)}
+                      processContent={processContent}
+                      caseId={caseId}
+                      animationDelay={200 + i * 50}
+                    />
+                  </SortableWrapper>
+                ))}
+              </SortableContext>
+            </DndContext>
           )}
         </div>
 
