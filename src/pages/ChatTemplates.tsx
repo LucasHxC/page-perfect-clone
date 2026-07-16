@@ -23,9 +23,39 @@ export default function ChatTemplatesPage() {
   const [openSections, setOpenSections] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [isDark, setIsDark] = useState(() => localStorage.getItem('theme') === 'dark');
+  const [sectionOrder, setSectionOrder] = useState<string[]>(() => {
+    try {
+      const saved = localStorage.getItem('section-order');
+      if (saved) {
+        const ids: string[] = JSON.parse(saved);
+        const valid = ids.filter(id => chatTemplates.some(s => s.id === id));
+        const missing = chatTemplates.map(s => s.id).filter(id => !valid.includes(id));
+        return [...valid, ...missing];
+      }
+    } catch {}
+    return chatTemplates.map(s => s.id);
+  });
   const clientNameTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const clientNameHeaderRef = useRef<HTMLInputElement>(null);
   const clientNameMainRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    localStorage.setItem('section-order', JSON.stringify(sectionOrder));
+  }, [sectionOrder]);
+
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 8 } })
+  );
+
+  const handleSectionDragEnd = (e: DragEndEvent) => {
+    const { active, over } = e;
+    if (!over || active.id === over.id) return;
+    setSectionOrder(order => {
+      const oldIndex = order.indexOf(active.id as string);
+      const newIndex = order.indexOf(over.id as string);
+      return arrayMove(order, oldIndex, newIndex);
+    });
+  };
 
   // Apply dark mode
   useEffect(() => {
