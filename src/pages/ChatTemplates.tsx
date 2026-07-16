@@ -97,9 +97,14 @@ export default function ChatTemplatesPage() {
     localStorage.setItem('selectedAgent', value);
   };
 
+  // Apply persisted section order
+  const orderedTemplates = sectionOrder
+    .map(id => chatTemplates.find(s => s.id === id))
+    .filter(Boolean) as typeof chatTemplates;
+
   // Filter templates based on search
   const filteredTemplates = searchQuery.trim()
-    ? chatTemplates
+    ? orderedTemplates
         .map(section => ({
           ...section,
           items: section.items.filter(
@@ -110,7 +115,7 @@ export default function ChatTemplatesPage() {
           ),
         }))
         .filter(s => s.items.length > 0)
-    : chatTemplates;
+    : orderedTemplates;
 
   const toggleSection = (id: string) => {
     setOpenSections(prev =>
