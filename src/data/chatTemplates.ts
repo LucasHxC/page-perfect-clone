@@ -319,7 +319,7 @@ export const rightSidebarButtons = [
   { label: "Hacked", symbol: "☠", message: "I understand that you're reporting a hacked account. Did I get it right?" },
   { label: "Password", symbol: "◇", message: "I understand that you're reporting a password issue and a new email address. Did I get it right?" },
   { label: "Empathy", symbol: "", message: "I'm here to help you out. Let me take a look at your account and see what I can do for you." },
-  { label: "Not Frust.", symbol: "▲", message: "I'm here to help you out. Let me take a look at your account and see what I can do for you." },
+  { label: "Not Frust.", symbol: "▲", message: "Thank you for the detailed information. I can definitely look into this issue for you. One moment while I investigate your account." },
   { label: "Timing", symbol: "◐", message: "When did you start noticing this issue?" },
   { label: "pause-inves", symbol: "○", message: "Thanks for sharing all this information, [Client's Name]. We are now looking into it. Please keep the chat open while we investigate." },
   { label: "Pause", symbol: "▢", message: "Kindly allow me 3–5 minutes while I look into this. Thank you." },
