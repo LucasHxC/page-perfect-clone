@@ -211,7 +211,8 @@ export const chatTemplates: TemplateSection[] = [
     title: "Can't Reproduce",
     icon: "🚫",
     items: [
-      { id: "general-case", content: "We were unable to reproduce the issue on our end. Please visit the links below for further troubleshooting steps and guidance.\n\nFacebook Help Center: https://www.facebook.com/help\nInstagram Help Center: https://help.instagram.com/", notes: "General Case" }
+      { id: "general-case", content: "We were unable to reproduce the issue on our end. Please visit the links below for further troubleshooting steps and guidance.\n\nFacebook Help Center: https://www.facebook.com/help\nInstagram Help Center: https://help.instagram.com/", notes: "General Case" },
+      { id: "technical-issues", content: "Due to technical issues, we are not able to assist you at this moment. Please visit https://www.facebook.com/help/ for further guidance.", notes: "Technical Issues" }
     ]
   },
   {
