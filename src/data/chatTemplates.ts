@@ -109,7 +109,7 @@ export const chatTemplates: TemplateSection[] = [
     title: "Selfie Verification",
     icon: "🤳",
     items: [
-      { id: "selfie-mobile", content: "To start the selfie verification process please click this link and follow the instructions provided in the app. Let me know when you have completed this process.", notes: "Mobile" },
+      { id: "selfie-mobile", content: "To start the selfie verification process, please click the link that will be shared shortly and follow the instructions provided in the app. Please let me know once you have finished.", notes: "Mobile" },
       { id: "selfie-desktop", content: "Scan this QR code with your phone camera to start the selfie verification process. Please follow the instructions provided in the app. Let me know when you have completed this process.", notes: "Desktop" }
     ]
   },
@@ -301,7 +301,7 @@ export const leftSidebarButtons = [
   { label: "FB App", symbol: "◇", message: "The quickest and most secure way to confirm ownership of this account is through the Facebook app. You do not need to log in to complete this process. Do you have the app installed on your phone?" },
   { label: "IG App", symbol: "◆", message: "The quickest way is via the Instagram app. Is it installed on your phone?" },
   { label: "Device Conf.", symbol: "●", message: "Could you please confirm the device you are using to chat with us? Is it a mobile phone or a desktop?" },
-  { label: "Mobile", symbol: "<", message: "To start the selfie verification process please click this link and follow the instructions provided in the app. Let me know when you have completed this process." },
+  { label: "Mobile", symbol: "<", message: "To start the selfie verification process, please click the link that will be shared shortly and follow the instructions provided in the app. Please let me know once you have finished." },
   { label: "Desktop", symbol: "◉", message: "Scan this QR code with your phone camera to start the selfie verification process. Please follow the instructions provided in the app. Let me know when you have completed this process." },
   { label: "ID Reject", symbol: "!", message: "Thank you for your patience while the system reviewed your ID. Unfortunately, I am unable to complete the authentication process based on the ID you have provided." },
   { label: "Invalid KBA", symbol: "!", message: "Unfortunately I am unable to complete the authentication process based on the information you have provided, so I won't be able to grant access to your account. Please refer to the Facebook Help Center article here for more information: https://www.facebook.com/help" },
