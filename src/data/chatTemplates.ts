@@ -109,7 +109,7 @@ export const chatTemplates: TemplateSection[] = [
     title: "Selfie Verification",
     icon: "🤳",
     items: [
-      { id: "selfie-mobile", content: "To start the selfie verification process please click this link and follow the instructions provided in the app. Let me know when you have completed this process.", notes: "Mobile" },
+      { id: "selfie-mobile", content: "To start the selfie verification process, please click the link that will be shared shortly and follow the instructions provided in the app. Please let me know once you have finished.", notes: "Mobile" },
       { id: "selfie-desktop", content: "Scan this QR code with your phone camera to start the selfie verification process. Please follow the instructions provided in the app. Let me know when you have completed this process.", notes: "Desktop" }
     ]
   },
