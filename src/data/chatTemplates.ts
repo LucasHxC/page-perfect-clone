@@ -192,7 +192,8 @@ export const chatTemplates: TemplateSection[] = [
     title: "Get New Email Before SUA",
     icon: "📩",
     items: [
-      { id: "new-email-request", content: "Can you provide an email that is NOT associated with an existing Facebook or Instagram account?" }
+      { id: "new-email-request", content: "Can you provide an email that is NOT associated with an existing Facebook or Instagram account?" },
+      { id: "previous-email-access", content: "To help secure your account, I'll need an email address that you have previously used to log into your Facebook account and still have access to?", notes: "Previous email" }
     ]
   },
   {
