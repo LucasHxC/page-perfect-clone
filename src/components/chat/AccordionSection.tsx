@@ -10,6 +10,8 @@ interface AccordionSectionProps {
   processContent: (content: string) => string;
   caseId: string;
   animationDelay?: number;
+  onAddItem?: (sectionId: string, content: string, notes?: string) => void;
+  onRemoveItem?: (sectionId: string, itemId: string) => void;
 }
 
 export function AccordionSection({
@@ -19,8 +21,21 @@ export function AccordionSection({
   processContent,
   caseId,
   animationDelay = 0,
+  onAddItem,
+  onRemoveItem,
 }: AccordionSectionProps) {
   const authCode = caseId && caseId.length >= 5 ? caseId.slice(-5) : caseId;
+  const [showForm, setShowForm] = useState(false);
+  const [draft, setDraft] = useState('');
+  const [draftNote, setDraftNote] = useState('');
+
+  const handleAdd = () => {
+    if (!draft.trim() || !onAddItem) return;
+    onAddItem(section.id, draft.trim(), draftNote.trim() || undefined);
+    setDraft('');
+    setDraftNote('');
+    setShowForm(false);
+  };
 
   return (
     <div
@@ -70,8 +85,53 @@ export function AccordionSection({
                 key={item.id}
                 item={item}
                 processContent={processContent}
+                onDelete={item.custom && onRemoveItem ? () => onRemoveItem(section.id, item.id) : undefined}
               />
             ))}
+
+            {onAddItem && (
+              showForm ? (
+                <div className="border-2 border-dashed border-primary/40 rounded-xl p-3 bg-muted/40 flex flex-col gap-2">
+                  <textarea
+                    value={draft}
+                    onChange={(e) => setDraft(e.target.value)}
+                    placeholder="Type the new CR message... ([Client's Name], Agent_name, {case_id} and {auth_code} placeholders work here)"
+                    rows={4}
+                    className="w-full px-3 py-2 border-2 border-border rounded-lg bg-card text-foreground text-[0.8rem] focus:outline-none focus:border-primary resize-y"
+                    autoFocus
+                  />
+                  <input
+                    type="text"
+                    value={draftNote}
+                    onChange={(e) => setDraftNote(e.target.value)}
+                    placeholder="Label (optional)"
+                    className="w-full px-3 py-1.5 border-2 border-border rounded-lg bg-card text-foreground text-xs focus:outline-none focus:border-primary"
+                  />
+                  <div className="flex justify-end gap-2">
+                    <button
+                      onClick={() => { setShowForm(false); setDraft(''); setDraftNote(''); }}
+                      className="px-3 py-1.5 text-xs rounded-lg border border-border text-foreground hover:bg-muted transition font-medium"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      onClick={handleAdd}
+                      disabled={!draft.trim()}
+                      className="px-3 py-1.5 text-xs rounded-lg bg-primary text-primary-foreground font-medium transition hover:bg-primary/90 disabled:opacity-40 disabled:cursor-not-allowed"
+                    >
+                      Add CR
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <button
+                  onClick={() => setShowForm(true)}
+                  className="w-full py-2 border-2 border-dashed border-border rounded-xl text-[0.8rem] font-medium text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-muted/40 transition-all"
+                >
+                  ＋ Add new CR
+                </button>
+              )
+            )}
           </div>
         </div>
       </div>
