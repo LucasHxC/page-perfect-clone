@@ -2,6 +2,7 @@ export interface TemplateItem {
   id: string;
   content: string;
   notes?: string;
+  custom?: boolean;
 }
 
 export interface TemplateSection {
