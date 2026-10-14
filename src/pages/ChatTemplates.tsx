@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { chatTemplates, leftSidebarButtons, rightSidebarButtons, quickNavButtons, agents } from '@/data/chatTemplates';
+import { chatTemplates, leftSidebarButtons, rightSidebarButtons, quickNavButtons, agents, type TemplateItem } from '@/data/chatTemplates';
 import { AccordionSection } from '@/components/chat/AccordionSection';
 import { SidebarPanel } from '@/components/chat/SidebarPanel';
 import { CaseInfoChecklist } from '@/components/chat/CaseInfoChecklist';
@@ -42,6 +42,28 @@ export default function ChatTemplatesPage() {
   useEffect(() => {
     localStorage.setItem('section-order', JSON.stringify(sectionOrder));
   }, [sectionOrder]);
+
+  const [customItems, setCustomItems] = useState<Record<string, TemplateItem[]>>(() => {
+    try {
+      return JSON.parse(localStorage.getItem('custom-crs') || '{}');
+    } catch {
+      return {};
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem('custom-crs', JSON.stringify(customItems));
+  }, [customItems]);
+
+  const addCustomItem = (sectionId: string, content: string, notes?: string) => {
+    const newItem: TemplateItem = { id: `custom-${Date.now()}`, content, notes, custom: true };
+    setCustomItems(prev => ({ ...prev, [sectionId]: [...(prev[sectionId] || []), newItem] }));
+    toast.success('New CR added');
+  };
+
+  const removeCustomItem = (sectionId: string, itemId: string) => {
+    setCustomItems(prev => ({ ...prev, [sectionId]: (prev[sectionId] || []).filter(i => i.id !== itemId) }));
+  };
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 8 } })
@@ -97,9 +119,13 @@ export default function ChatTemplatesPage() {
     localStorage.setItem('selectedAgent', value);
   };
 
-  // Apply persisted section order
+  // Apply persisted section order and merge in custom CRs
   const orderedTemplates = sectionOrder
-    .map(id => chatTemplates.find(s => s.id === id))
+    .map(id => {
+      const section = chatTemplates.find(s => s.id === id);
+      if (!section) return undefined;
+      return { ...section, items: [...section.items, ...(customItems[id] || [])] };
+    })
     .filter(Boolean) as typeof chatTemplates;
 
   // Filter templates based on search
@@ -296,6 +322,8 @@ export default function ChatTemplatesPage() {
                       processContent={processContent}
                       caseId={caseId}
                       animationDelay={200 + i * 50}
+                      onAddItem={addCustomItem}
+                      onRemoveItem={removeCustomItem}
                     />
                   </SortableWrapper>
                 ))}

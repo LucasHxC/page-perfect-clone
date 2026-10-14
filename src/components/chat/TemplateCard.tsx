@@ -7,9 +7,10 @@ import { copyText } from '@/lib/clipboard';
 interface TemplateCardProps {
   item: TemplateSection['items'][0];
   processContent: (content: string) => string;
+  onDelete?: () => void;
 }
 
-export function TemplateCard({ item, processContent }: TemplateCardProps) {
+export function TemplateCard({ item, processContent, onDelete }: TemplateCardProps) {
   const copyBtnRef = useRef<HTMLButtonElement>(null);
 
   const handleCopy = async () => {
@@ -45,6 +46,19 @@ export function TemplateCard({ item, processContent }: TemplateCardProps) {
       <p className="text-[0.8rem] leading-relaxed text-card-foreground whitespace-pre-wrap break-words pr-8">
         {processContent(item.content)}
       </p>
+      {onDelete && (
+        <button
+          className={cn(
+            "absolute left-2.5 top-2.5 p-1.5 rounded-lg bg-secondary border-2 border-border cursor-pointer",
+            "opacity-0 group-hover:opacity-100 transition-all duration-200 text-foreground text-xs",
+            "hover:bg-destructive hover:text-destructive-foreground hover:border-destructive"
+          )}
+          onClick={(e) => { e.stopPropagation(); onDelete(); }}
+          title="Delete CR"
+        >
+          ✕
+        </button>
+      )}
       <button
         ref={copyBtnRef}
         className={cn(
